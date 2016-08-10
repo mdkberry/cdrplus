@@ -33,17 +33,17 @@ FOLDER CONTENTS:
 - Asterisk PBX Build Info  
 	This is the Golden Standard PBX build I was working to and may help if anyone runs into PBX build problems. 		I began using Elastix but moved to FreePBX which was better and more stable.
 - CDRPlus_Software_Vrs2  
-	The software itself in archive form and unpacked into \cdr folder 
+	The software itself in archive form and unpacked into \cdr folder   
 	Installation Instructions
 - Database_Stuff  
 	Legacy info that may be of use. Mostly ignore it as it probably is not in the current build.
 - Design_Specs  
-	Some of the design specs I worked with Canlan318 to get vrs 1 and vrs 2 completed. Any probloems we ran into 		would not be reflected here so bear that in mind. It may not be exactly how vrs 2 ended up.
+	Some of the design specs I worked with Canlan318 to get vrs 1 and vrs 2 completed. Any problems we ran into later 	would not be reflected here so bear that in mind. It may not be exactly how vrs 2 ended up.
 - Early_CDRPlus_Builds    
-	again this is for reference and has a lot of the early workings and screenshots. it may help any coder 		wanting to understand better how it works and the intent behind it. prbably not needed but I put it here 	anyway.
+	again this is for reference and has a lot of the early workings and screenshots. it may help any coder wanting to understand better how it works and the intent behind it. probably not needed but I put it here anyway.
 - Program_Screenshots    
 	screen shots of the browser, there are more in the Early Builds folder.
 - To Do List  
-	just my to do list as I left it the last time I looked at updating the software.
+	just my to do list as I left it the last time I looked at updating the software which was in 2013.
 
 
