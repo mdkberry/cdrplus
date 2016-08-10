@@ -6,25 +6,25 @@ Coding: Canlan318 @ Freelancer.com
 
 SUMMARY:
 
-A live call logging system, updated and viewed via browser using staf names or teams to show call numbers in a live tally, and as tallied call totals per day/week/month in graphs that can auto rotate in the browser window based on optional settings and can therefore be displayed live on an LCD screen in the office too.
+A live call logging system, updated and viewed via browser using staff names and teams to show call numbers in a live tally, as call totals per day/week/month in graphs that can be set to auto-rotate in the browser window and can therefore be displayed live on an LCD screen in the office or viewed from any network PC.
  
-CDRPlus was designed to run on Windows 7 usin XAMPP, and accesses a seperate server running Asterisk PBX to monitor the CDR reports database. Using additional db’s tables manually created on the PBX to include and connect extensions, teams and staff names then use that info to match and calculate calls made over various periods. This info is then made available via the CDRPlus software and accessible via browser from the network.
+CDRPlus was designed to run on Windows 7 using XAMPP, and access a seperate server running Asterisk PBX to monitor the CDR reports database as it logs calls. Using additional db’s tables manually created on the PBX to include and connect extensions, teams and staff with the call info, then use that info to match and calculate calls made over various periods. This info is then made available via the CDRPlus software and accessible via browser from the network.
 
-There is also a reporting system built in that can be set to run on a schedule and mail out using external mail server if you have access to one. There was some sendmail settings but not sure if they worked very well.
+There is also a reporting system that can be set to run on a schedule or on demand, and mails out using external mail server if you have access to one. settings for this need to be added into the relevant php files. There was some attempts to use sendmail settings locally, but not sure if they worked very well.
 
-Updates to databases and records are made via a browser window and reports are also possible that run scheduled times or on demand. This is also updated from the browser.
+Updates to databases and records are made via a browser window too, and reports are also possible that run scheduled times or on demand. This is also updated from the browser. Once it is working most tasks can be done from the browser and controlled using PBX access rights as I recall. 
 
-The main issue with this software is that it has absolutely no security and makes the PBX vulnerable via MYSql access as that port needs to be open. I managed this using very tight firewall control internally on the office network restricting access to the PBX using iptables but it would be easy to hack in its current state. I never had a problem as long as only I had admin access to the CDRPlus and PBX machines. 
+The main issue with this software is that it has absolutely no security and makes the PBX vulnerable via MYSql access as that port needs to be open. I managed this using very tight firewall control internally on the office network restricting access to the PBX using iptables and logging any attempts on the PBX, but it would be easy to hack internally. I never had a problem as long as only I had admin access to the CDRPlus and PBX machines. 
 
-CDRPLUS version  2.0 is tested on Windows 7 pro (virtual) connecting to FreePBX and Elastix 2.3 Mysql on a remote linux box on the same LAN subnet.
+CDRPLUS version 2.0 is tested on Windows 7 pro (virtual) connecting to FreePBX and Elastix PBX, version details in the docos,.
 
 I ran this live in a business environment with great success for 2 years, firstly on Elastix and then I moved to FreePBX which handled it a lot better and I felt to be a more robust system than Elastix.
 
 I am opening the software up to the open source community so others can benefit from it and start to work on it to improve it. It is a great design but just needs the security side addressing within the software and also turning into something less manually cumbersome to install.
 
-I will not be updating this personally but will try to remain available to anyone in the early stages who wants to take on making it more user friendly in the install stage. There is also the issue of clarity around the database setup that I dont seem to have info on. If you want to get started begin with the Installation Instructions as everything you need should be in there to get started. 
+I will not be updating this personally, but will try to remain available to anyone in the early stages who wants to take on making it more user-friendly in the install stage. There is also the issue of clarity around the database setup that I dont seem to have info on. If you want to get started begin with the Installation Instructions as everything you need should be in there to get going with it. 
 
-I include the PBX builds instructions as well as I feel they may help people with problems I ran into when first designing these to work together. 
+I include the PBX build instructions as well as I feel they may help people with problems I ran into when first designing these machines to work together. 
 
 Rgds
 Mark – August 2016.
