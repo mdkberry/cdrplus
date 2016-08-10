@@ -1,0 +1,340 @@
+BEGIN TRANSACTION;
+CREATE TABLE acl_action (description varchar(200), id INTEGER PRIMARY KEY, name varchar(10));
+INSERT INTO "acl_action" VALUES('Access the resource', 1, 'access');
+INSERT INTO "acl_action" VALUES('View the resource', 2, 'view');
+INSERT INTO "acl_action" VALUES('Create into resource', 3, 'create');
+INSERT INTO "acl_action" VALUES('Delete in resource', 4, 'delete');
+INSERT INTO "acl_action" VALUES('Update into resource', 5, 'update');
+CREATE TABLE acl_group (description TEXT, id INTEGER PRIMARY KEY, name varchar(200));
+INSERT INTO "acl_group" VALUES('total access', 1, 'administrator');
+INSERT INTO "acl_group" VALUES('Operator', 2, 'Operator');
+INSERT INTO "acl_group" VALUES('extension user', 3, 'extension');
+INSERT INTO "acl_group" VALUES('Reports', 4, 'Reports');
+INSERT INTO "acl_group" VALUES('Dept', 5, 'Dept');
+INSERT INTO "acl_group" VALUES('Reception', 6, 'Reception');
+INSERT INTO "acl_group" VALUES('HR', 7, 'HR');
+INSERT INTO "acl_group" VALUES('SALES', 8, 'SALES');
+INSERT INTO "acl_group" VALUES('OPS', 9, 'OPS');
+INSERT INTO "acl_group" VALUES('MANAGER', 10, 'MANAGER');
+CREATE TABLE acl_membership (
+  id INTEGER  NOT NULL   PRIMARY KEY,
+  id_user INTEGER  NOT NULL default '0',
+  id_group INTEGER   NOT NULL default '0'
+);
+INSERT INTO "acl_membership" VALUES(1, 1, 1);
+INSERT INTO "acl_membership" VALUES(2, 2, 4);
+INSERT INTO "acl_membership" VALUES(4, 4, 3);
+INSERT INTO "acl_membership" VALUES(5, 3, 3);
+INSERT INTO "acl_membership" VALUES(6, 5, 7);
+INSERT INTO "acl_membership" VALUES(7, 6, 7);
+INSERT INTO "acl_membership" VALUES(8, 7, 7);
+INSERT INTO "acl_membership" VALUES(10, 9, 8);
+INSERT INTO "acl_membership" VALUES(11, 8, 8);
+INSERT INTO "acl_membership" VALUES(12, 10, 10);
+INSERT INTO "acl_membership" VALUES(13, 11, 10);
+INSERT INTO "acl_membership" VALUES(14, 12, 8);
+INSERT INTO "acl_membership" VALUES(15, 13, 9);
+INSERT INTO "acl_membership" VALUES(16, 14, 9);
+INSERT INTO "acl_membership" VALUES(17, 15, 9);
+INSERT INTO "acl_membership" VALUES(18, 16, 9);
+INSERT INTO "acl_membership" VALUES(19, 17, 9);
+INSERT INTO "acl_membership" VALUES(20, 18, 9);
+CREATE TABLE acl_user (id INTEGER PRIMARY KEY, name varchar(50), description varchar(180), md5_password varchar(50), extension varchar(20));
+INSERT INTO "acl_user" VALUES(1, 'admin', 'admin', '59d963ed8a22f3a022972343cc260129', '');
+INSERT INTO "acl_user" VALUES(2, 'reports', 'reports', '0d107d09f5bbe40cade3de5c71e9e9b7', '');
+INSERT INTO "acl_user" VALUES(3, 'Reception', 'Reception', '81dc9bdb52d04dc20036dbd8313ed055', '500');
+INSERT INTO "acl_user" VALUES(4, 'Frances', 'Frances', '81dc9bdb52d04dc20036dbd8313ed055', '501');
+INSERT INTO "acl_user" VALUES(5, 'Sarah', 'Sarah', '81dc9bdb52d04dc20036dbd8313ed055', '502');
+INSERT INTO "acl_user" VALUES(6, 'Orla', 'Orla', '81dc9bdb52d04dc20036dbd8313ed055', '503');
+INSERT INTO "acl_user" VALUES(7, 'Preyaz', 'Preyaz', '81dc9bdb52d04dc20036dbd8313ed055', '505');
+INSERT INTO "acl_user" VALUES(8, 'Dale', 'Dale', '81dc9bdb52d04dc20036dbd8313ed055', '506');
+INSERT INTO "acl_user" VALUES(9, 'Juan', 'Juan', '81dc9bdb52d04dc20036dbd8313ed055', '507');
+INSERT INTO "acl_user" VALUES(10, 'Tyron', 'Tyron', '81dc9bdb52d04dc20036dbd8313ed055', '508');
+INSERT INTO "acl_user" VALUES(11, 'Larry', 'Larry', '81dc9bdb52d04dc20036dbd8313ed055', '509');
+INSERT INTO "acl_user" VALUES(12, 'Dave', 'Dave', '81dc9bdb52d04dc20036dbd8313ed055', '510');
+INSERT INTO "acl_user" VALUES(13, 'Matilda', 'Matilda', '81dc9bdb52d04dc20036dbd8313ed055', '512');
+INSERT INTO "acl_user" VALUES(14, 'Vince', 'Vince', '81dc9bdb52d04dc20036dbd8313ed055', '513');
+INSERT INTO "acl_user" VALUES(15, 'Samantha', 'Samantha', '81dc9bdb52d04dc20036dbd8313ed055', '514');
+INSERT INTO "acl_user" VALUES(16, 'Michael', 'Michael', '81dc9bdb52d04dc20036dbd8313ed055', '515');
+INSERT INTO "acl_user" VALUES(17, 'Blake', 'Blake', '81dc9bdb52d04dc20036dbd8313ed055', '518');
+INSERT INTO "acl_user" VALUES(18, 'Kourtney', 'Kourtney', '81dc9bdb52d04dc20036dbd8313ed055', '519');
+CREATE TABLE acl_user_permission (id INTEGER PRIMARY KEY, id_action int(11), id_user int(11), id_resource int(11));
+CREATE TABLE acl_resource (id INTEGER PRIMARY KEY, name varchar(50), description varchar(180));
+INSERT INTO "acl_resource" VALUES(2, 'usermgr', 'Users');
+INSERT INTO "acl_resource" VALUES(3, 'grouplist', 'Group List');
+INSERT INTO "acl_resource" VALUES(4, 'userlist', 'Users');
+INSERT INTO "acl_resource" VALUES(5, 'group_permission', 'Group Permission');
+INSERT INTO "acl_resource" VALUES(16, 'preferences', 'Preferences');
+INSERT INTO "acl_resource" VALUES(17, 'language', 'Language');
+INSERT INTO "acl_resource" VALUES(18, 'themes_system', 'Themes');
+INSERT INTO "acl_resource" VALUES(19, 'webmail', 'Webmail');
+INSERT INTO "acl_resource" VALUES(20, 'cdrreport', 'CDR Report');
+INSERT INTO "acl_resource" VALUES(21, 'channelusage', 'Channels Usage');
+INSERT INTO "acl_resource" VALUES(22, 'billing', 'Billing');
+INSERT INTO "acl_resource" VALUES(23, 'billing_rates', 'Rates');
+INSERT INTO "acl_resource" VALUES(24, 'billing_report', 'Billing Report');
+INSERT INTO "acl_resource" VALUES(25, 'dest_distribution', 'Destination Distribution');
+INSERT INTO "acl_resource" VALUES(26, 'billing_setup', 'Billing Setup');
+INSERT INTO "acl_resource" VALUES(27, 'asterisk_log', 'Asterisk Logs');
+INSERT INTO "acl_resource" VALUES(28, 'graphic_report', 'Graphic Report');
+INSERT INTO "acl_resource" VALUES(29, 'summary_by_extension', 'Summary');
+INSERT INTO "acl_resource" VALUES(30, 'sec_firewall', 'Firewall');
+INSERT INTO "acl_resource" VALUES(31, 'sec_rules', 'Firewall Rules');
+INSERT INTO "acl_resource" VALUES(32, 'sec_ports', 'Define Ports');
+INSERT INTO "acl_resource" VALUES(33, 'sec_accessaudit', 'Audit');
+INSERT INTO "acl_resource" VALUES(34, 'sec_weak_keys', 'Weak Keys');
+INSERT INTO "acl_resource" VALUES(35, 'sec_advanced_settings', 'Advanced Settings');
+INSERT INTO "acl_resource" VALUES(36, 'calendar', 'Calendar');
+INSERT INTO "acl_resource" VALUES(37, 'address_book', 'Address Book');
+INSERT INTO "acl_resource" VALUES(38, 'email_domains', 'Domains');
+INSERT INTO "acl_resource" VALUES(39, 'email_accounts', 'Accounts');
+INSERT INTO "acl_resource" VALUES(40, 'email_relay', 'Relay');
+INSERT INTO "acl_resource" VALUES(41, 'antispam', 'Antispam');
+INSERT INTO "acl_resource" VALUES(42, 'remote_smtp', 'Remote SMTP');
+INSERT INTO "acl_resource" VALUES(43, 'email_list', 'Email list');
+INSERT INTO "acl_resource" VALUES(44, 'email_stats', 'Email stats');
+INSERT INTO "acl_resource" VALUES(45, 'vacations', 'Vacations');
+INSERT INTO "acl_resource" VALUES(46, 'a2b', 'Calling Cards');
+INSERT INTO "acl_resource" VALUES(47, 'a2b_admin', 'Admin');
+INSERT INTO "acl_resource" VALUES(48, 'a2b_agent', 'Agent');
+INSERT INTO "acl_resource" VALUES(49, 'a2b_customer', 'Customer');
+INSERT INTO "acl_resource" VALUES(50, 'vtigercrm', 'vTigerCRM');
+INSERT INTO "acl_resource" VALUES(51, 'myex_config', 'Settings');
+INSERT INTO "acl_resource" VALUES(52, 'downloads', 'Downloads');
+INSERT INTO "acl_resource" VALUES(53, 'sphones', 'Softphones');
+INSERT INTO "acl_resource" VALUES(54, 'faxutils', 'Fax Utilities');
+INSERT INTO "acl_resource" VALUES(55, 'instantmessaging', 'Instant Messaging');
+INSERT INTO "acl_resource" VALUES(56, 'addons_availables', 'Addons');
+INSERT INTO "acl_resource" VALUES(57, 'openfire', 'OpenFire');
+INSERT INTO "acl_resource" VALUES(58, 'virtual_fax', 'Virtual Fax');
+INSERT INTO "acl_resource" VALUES(59, 'faxlist', 'Virtual Fax List');
+INSERT INTO "acl_resource" VALUES(60, 'faxnew', 'New Virtual Fax');
+INSERT INTO "acl_resource" VALUES(61, 'sendfax', 'Send Fax');
+INSERT INTO "acl_resource" VALUES(62, 'faxmaster', 'Fax Master');
+INSERT INTO "acl_resource" VALUES(63, 'faxclients', 'Fax Clients');
+INSERT INTO "acl_resource" VALUES(64, 'faxviewer', 'Fax Viewer');
+INSERT INTO "acl_resource" VALUES(65, 'email_template', 'Email Template');
+INSERT INTO "acl_resource" VALUES(66, 'sysdash', 'Dashboard');
+INSERT INTO "acl_resource" VALUES(67, 'dashboard', 'Dashboard');
+INSERT INTO "acl_resource" VALUES(68, 'applet_admin', 'Dashboard Applet Admin');
+INSERT INTO "acl_resource" VALUES(69, 'network', 'Network');
+INSERT INTO "acl_resource" VALUES(70, 'network_parameters', 'Network Parameters');
+INSERT INTO "acl_resource" VALUES(71, 'dhcp_server', 'DHCP Server');
+INSERT INTO "acl_resource" VALUES(72, 'dhcp_clientlist', 'DHCP Client List');
+INSERT INTO "acl_resource" VALUES(73, 'dhcp_by_mac', 'Assign IP Address to Host');
+INSERT INTO "acl_resource" VALUES(74, 'shutdown', 'Shutdown');
+INSERT INTO "acl_resource" VALUES(75, 'hardware_detector', 'Hardware Detector');
+INSERT INTO "acl_resource" VALUES(76, 'updates', 'Updates');
+INSERT INTO "acl_resource" VALUES(77, 'packages', 'Packages');
+INSERT INTO "acl_resource" VALUES(78, 'repositories', 'Repositories');
+INSERT INTO "acl_resource" VALUES(79, 'backup_restore', 'Backup/Restore');
+INSERT INTO "acl_resource" VALUES(80, 'time_config', 'Date/Time');
+INSERT INTO "acl_resource" VALUES(81, 'currency', 'Currency');
+INSERT INTO "acl_resource" VALUES(82, 'pbxadmin', 'PBX Configuration');
+INSERT INTO "acl_resource" VALUES(83, 'control_panel', 'Operator Panel');
+INSERT INTO "acl_resource" VALUES(84, 'voicemail', 'Voicemail');
+INSERT INTO "acl_resource" VALUES(85, 'monitoring', 'Monitoring');
+INSERT INTO "acl_resource" VALUES(86, 'endpoint_configurator', 'Endpoint Configurator');
+INSERT INTO "acl_resource" VALUES(87, 'conference', 'Conference');
+INSERT INTO "acl_resource" VALUES(88, 'extensions_batch', 'Batch of Extensions');
+INSERT INTO "acl_resource" VALUES(89, 'tools', 'Tools');
+INSERT INTO "acl_resource" VALUES(90, 'asterisk_cli', 'Asterisk-Cli');
+INSERT INTO "acl_resource" VALUES(91, 'file_editor', 'Asterisk File Editor');
+INSERT INTO "acl_resource" VALUES(92, 'text_to_wav', 'Text to Wav');
+INSERT INTO "acl_resource" VALUES(93, 'festival', 'Festival');
+INSERT INTO "acl_resource" VALUES(94, 'recordings', 'Recordings');
+INSERT INTO "acl_resource" VALUES(95, 'fop', 'Flash Operator Panel');
+INSERT INTO "acl_resource" VALUES(96, 'voipprovider', 'VoIP Provider');
+INSERT INTO "acl_resource" VALUES(97, 'endpoints', 'Batch Configurations');
+INSERT INTO "acl_resource" VALUES(98, 'endpoints_batch', 'Batch of Endpoints');
+CREATE TABLE acl_group_permission (id INTEGER NOT NULL PRIMARY KEY,  id_action INTEGER NOT NULL, id_group INTEGER NOT NULL, id_resource INTEGER NOT NULL);
+INSERT INTO "acl_group_permission" VALUES(2, 1, 1, 2);
+INSERT INTO "acl_group_permission" VALUES(3, 1, 1, 3);
+INSERT INTO "acl_group_permission" VALUES(4, 1, 1, 4);
+INSERT INTO "acl_group_permission" VALUES(5, 1, 1, 5);
+INSERT INTO "acl_group_permission" VALUES(7, 1, 1, 16);
+INSERT INTO "acl_group_permission" VALUES(8, 1, 1, 17);
+INSERT INTO "acl_group_permission" VALUES(9, 1, 1, 18);
+INSERT INTO "acl_group_permission" VALUES(10, 1, 1, 19);
+INSERT INTO "acl_group_permission" VALUES(11, 1, 2, 19);
+INSERT INTO "acl_group_permission" VALUES(13, 1, 1, 20);
+INSERT INTO "acl_group_permission" VALUES(14, 1, 2, 20);
+INSERT INTO "acl_group_permission" VALUES(15, 1, 1, 21);
+INSERT INTO "acl_group_permission" VALUES(16, 1, 2, 21);
+INSERT INTO "acl_group_permission" VALUES(17, 1, 1, 22);
+INSERT INTO "acl_group_permission" VALUES(18, 1, 1, 23);
+INSERT INTO "acl_group_permission" VALUES(19, 1, 1, 24);
+INSERT INTO "acl_group_permission" VALUES(20, 1, 2, 24);
+INSERT INTO "acl_group_permission" VALUES(21, 1, 1, 25);
+INSERT INTO "acl_group_permission" VALUES(22, 1, 2, 25);
+INSERT INTO "acl_group_permission" VALUES(23, 1, 1, 26);
+INSERT INTO "acl_group_permission" VALUES(24, 1, 2, 26);
+INSERT INTO "acl_group_permission" VALUES(25, 1, 1, 27);
+INSERT INTO "acl_group_permission" VALUES(26, 1, 1, 28);
+INSERT INTO "acl_group_permission" VALUES(27, 1, 1, 29);
+INSERT INTO "acl_group_permission" VALUES(28, 1, 1, 30);
+INSERT INTO "acl_group_permission" VALUES(29, 1, 1, 31);
+INSERT INTO "acl_group_permission" VALUES(30, 1, 1, 32);
+INSERT INTO "acl_group_permission" VALUES(31, 1, 1, 33);
+INSERT INTO "acl_group_permission" VALUES(32, 1, 1, 34);
+INSERT INTO "acl_group_permission" VALUES(33, 1, 1, 35);
+INSERT INTO "acl_group_permission" VALUES(34, 1, 1, 36);
+INSERT INTO "acl_group_permission" VALUES(35, 1, 2, 36);
+INSERT INTO "acl_group_permission" VALUES(37, 1, 1, 37);
+INSERT INTO "acl_group_permission" VALUES(38, 1, 2, 37);
+INSERT INTO "acl_group_permission" VALUES(39, 1, 3, 37);
+INSERT INTO "acl_group_permission" VALUES(40, 1, 1, 38);
+INSERT INTO "acl_group_permission" VALUES(41, 1, 1, 39);
+INSERT INTO "acl_group_permission" VALUES(42, 1, 1, 40);
+INSERT INTO "acl_group_permission" VALUES(43, 1, 1, 41);
+INSERT INTO "acl_group_permission" VALUES(44, 1, 1, 42);
+INSERT INTO "acl_group_permission" VALUES(45, 1, 1, 43);
+INSERT INTO "acl_group_permission" VALUES(46, 1, 1, 44);
+INSERT INTO "acl_group_permission" VALUES(47, 1, 1, 45);
+INSERT INTO "acl_group_permission" VALUES(48, 1, 2, 45);
+INSERT INTO "acl_group_permission" VALUES(50, 1, 1, 46);
+INSERT INTO "acl_group_permission" VALUES(51, 1, 1, 47);
+INSERT INTO "acl_group_permission" VALUES(52, 1, 1, 48);
+INSERT INTO "acl_group_permission" VALUES(53, 1, 1, 49);
+INSERT INTO "acl_group_permission" VALUES(54, 1, 1, 50);
+INSERT INTO "acl_group_permission" VALUES(55, 1, 1, 51);
+INSERT INTO "acl_group_permission" VALUES(56, 1, 2, 51);
+INSERT INTO "acl_group_permission" VALUES(57, 1, 3, 51);
+INSERT INTO "acl_group_permission" VALUES(58, 1, 1, 52);
+INSERT INTO "acl_group_permission" VALUES(59, 1, 1, 53);
+INSERT INTO "acl_group_permission" VALUES(60, 1, 1, 54);
+INSERT INTO "acl_group_permission" VALUES(61, 1, 1, 55);
+INSERT INTO "acl_group_permission" VALUES(62, 1, 1, 56);
+INSERT INTO "acl_group_permission" VALUES(63, 1, 1, 57);
+INSERT INTO "acl_group_permission" VALUES(64, 1, 1, 58);
+INSERT INTO "acl_group_permission" VALUES(65, 1, 1, 59);
+INSERT INTO "acl_group_permission" VALUES(66, 1, 1, 60);
+INSERT INTO "acl_group_permission" VALUES(67, 1, 1, 61);
+INSERT INTO "acl_group_permission" VALUES(68, 1, 1, 62);
+INSERT INTO "acl_group_permission" VALUES(69, 1, 1, 63);
+INSERT INTO "acl_group_permission" VALUES(70, 1, 1, 64);
+INSERT INTO "acl_group_permission" VALUES(71, 1, 1, 65);
+INSERT INTO "acl_group_permission" VALUES(72, 1, 1, 66);
+INSERT INTO "acl_group_permission" VALUES(73, 1, 2, 66);
+INSERT INTO "acl_group_permission" VALUES(75, 1, 1, 67);
+INSERT INTO "acl_group_permission" VALUES(76, 1, 2, 67);
+INSERT INTO "acl_group_permission" VALUES(78, 1, 1, 68);
+INSERT INTO "acl_group_permission" VALUES(79, 1, 2, 68);
+INSERT INTO "acl_group_permission" VALUES(81, 1, 1, 69);
+INSERT INTO "acl_group_permission" VALUES(82, 1, 1, 70);
+INSERT INTO "acl_group_permission" VALUES(83, 1, 1, 71);
+INSERT INTO "acl_group_permission" VALUES(84, 1, 1, 72);
+INSERT INTO "acl_group_permission" VALUES(85, 1, 1, 73);
+INSERT INTO "acl_group_permission" VALUES(86, 1, 1, 74);
+INSERT INTO "acl_group_permission" VALUES(87, 1, 1, 75);
+INSERT INTO "acl_group_permission" VALUES(88, 1, 1, 76);
+INSERT INTO "acl_group_permission" VALUES(89, 1, 1, 77);
+INSERT INTO "acl_group_permission" VALUES(90, 1, 1, 78);
+INSERT INTO "acl_group_permission" VALUES(91, 1, 1, 79);
+INSERT INTO "acl_group_permission" VALUES(92, 1, 1, 80);
+INSERT INTO "acl_group_permission" VALUES(93, 1, 1, 81);
+INSERT INTO "acl_group_permission" VALUES(94, 1, 1, 82);
+INSERT INTO "acl_group_permission" VALUES(95, 1, 1, 83);
+INSERT INTO "acl_group_permission" VALUES(96, 1, 2, 83);
+INSERT INTO "acl_group_permission" VALUES(97, 1, 1, 84);
+INSERT INTO "acl_group_permission" VALUES(98, 1, 2, 84);
+INSERT INTO "acl_group_permission" VALUES(99, 1, 3, 84);
+INSERT INTO "acl_group_permission" VALUES(100, 1, 1, 85);
+INSERT INTO "acl_group_permission" VALUES(101, 1, 2, 85);
+INSERT INTO "acl_group_permission" VALUES(103, 1, 1, 86);
+INSERT INTO "acl_group_permission" VALUES(104, 1, 1, 87);
+INSERT INTO "acl_group_permission" VALUES(105, 1, 1, 88);
+INSERT INTO "acl_group_permission" VALUES(106, 1, 1, 89);
+INSERT INTO "acl_group_permission" VALUES(107, 1, 1, 90);
+INSERT INTO "acl_group_permission" VALUES(108, 1, 1, 91);
+INSERT INTO "acl_group_permission" VALUES(109, 1, 1, 92);
+INSERT INTO "acl_group_permission" VALUES(110, 1, 1, 93);
+INSERT INTO "acl_group_permission" VALUES(111, 1, 1, 94);
+INSERT INTO "acl_group_permission" VALUES(112, 1, 2, 94);
+INSERT INTO "acl_group_permission" VALUES(114, 1, 1, 95);
+INSERT INTO "acl_group_permission" VALUES(115, 1, 2, 95);
+INSERT INTO "acl_group_permission" VALUES(116, 1, 1, 96);
+INSERT INTO "acl_group_permission" VALUES(117, 1, 1, 97);
+INSERT INTO "acl_group_permission" VALUES(118, 1, 1, 98);
+INSERT INTO "acl_group_permission" VALUES(119, 1, 4, 20);
+INSERT INTO "acl_group_permission" VALUES(120, 1, 4, 21);
+INSERT INTO "acl_group_permission" VALUES(121, 1, 4, 28);
+INSERT INTO "acl_group_permission" VALUES(122, 1, 4, 85);
+INSERT INTO "acl_group_permission" VALUES(123, 1, 4, 94);
+INSERT INTO "acl_group_permission" VALUES(124, 1, 4, 29);
+CREATE TABLE acl_user_shortcut(
+       id           INTEGER     NOT NULL   PRIMARY KEY,
+       id_user      INTEGER     NOT NULL,
+       id_resource  INTEGER     NOT NULL,
+       type         VARCHAR(25) NOT NULL,
+       description  VARCHAR(25)
+);
+INSERT INTO "acl_user_shortcut" VALUES(1, 1, 88, 'history', NULL);
+INSERT INTO "acl_user_shortcut" VALUES(2, 1, 82, 'history', NULL);
+INSERT INTO "acl_user_shortcut" VALUES(3, 1, 67, 'history', NULL);
+INSERT INTO "acl_user_shortcut" VALUES(4, 1, 3, 'history', NULL);
+INSERT INTO "acl_user_shortcut" VALUES(5, 1, 4, 'history', NULL);
+INSERT INTO "acl_user_shortcut" VALUES(6, 2, 85, 'history', NULL);
+INSERT INTO "acl_user_shortcut" VALUES(7, 2, 28, 'history', NULL);
+INSERT INTO "acl_user_shortcut" VALUES(8, 2, 21, 'history', NULL);
+INSERT INTO "acl_user_shortcut" VALUES(9, 3, 36, 'history', NULL);
+INSERT INTO "acl_user_shortcut" VALUES(10, 3, 19, 'history', NULL);
+INSERT INTO "acl_user_shortcut" VALUES(11, 3, 85, 'history', NULL);
+INSERT INTO "acl_user_shortcut" VALUES(12, 3, 51, 'history', NULL);
+INSERT INTO "acl_user_shortcut" VALUES(13, 3, 84, 'history', NULL);
+INSERT INTO "acl_user_shortcut" VALUES(14, 2, 29, 'history', NULL);
+INSERT INTO "acl_user_shortcut" VALUES(15, 2, 20, 'history', NULL);
+CREATE TABLE sticky_note(
+       id           INTEGER   NOT NULL   PRIMARY KEY,
+       id_user      INTEGER   NOT NULL,
+       id_resource  INTEGER   NOT NULL,
+       date_edit    DATETIME  NOT NULL,
+       description  TEXT
+, auto_popup INTEGER NOT NULL DEFAULT '0');
+CREATE TABLE acl_profile_properties
+(
+       id_profile   INTEGER     NOT NULL,
+       property     VARCHAR(32) NOT NULL,
+       value        VARCHAR(256),
+
+       PRIMARY KEY (id_profile, property),
+       FOREIGN KEY (id_profile) REFERENCES acl_user_profile (id_profile)
+);
+INSERT INTO "acl_profile_properties" VALUES(1, 'login', '');
+INSERT INTO "acl_profile_properties" VALUES(1, 'domain', '');
+INSERT INTO "acl_profile_properties" VALUES(1, 'password', 'letmein');
+INSERT INTO "acl_profile_properties" VALUES(3, 'login', '');
+INSERT INTO "acl_profile_properties" VALUES(3, 'domain', '');
+INSERT INTO "acl_profile_properties" VALUES(1, 'menuColor', '#454545');
+INSERT INTO "acl_profile_properties" VALUES(8, 'login', '');
+INSERT INTO "acl_profile_properties" VALUES(8, 'domain', '');
+CREATE TABLE acl_user_profile
+(
+       id_profile   INTEGER     NOT NULL,
+       id_user      INTEGER     NOT NULL,
+       id_resource  INTEGER     NOT NULL,
+       profile      VARCHAR(32) NOT NULL,
+
+       PRIMARY KEY (id_profile),
+       FOREIGN KEY (id_user)     REFERENCES acl_user(id),
+       FOREIGN KEY (id_resource) REFERENCES acl_resource(id)
+);
+INSERT INTO "acl_user_profile" VALUES(1, 1, 19, 'default');
+INSERT INTO "acl_user_profile" VALUES(2, 2, 19, 'default');
+INSERT INTO "acl_user_profile" VALUES(3, 3, 19, 'default');
+INSERT INTO "acl_user_profile" VALUES(4, 4, 19, 'default');
+INSERT INTO "acl_user_profile" VALUES(5, 5, 19, 'default');
+INSERT INTO "acl_user_profile" VALUES(6, 6, 19, 'default');
+INSERT INTO "acl_user_profile" VALUES(7, 7, 19, 'default');
+INSERT INTO "acl_user_profile" VALUES(8, 8, 19, 'default');
+INSERT INTO "acl_user_profile" VALUES(9, 9, 19, 'default');
+INSERT INTO "acl_user_profile" VALUES(10, 10, 19, 'default');
+INSERT INTO "acl_user_profile" VALUES(11, 11, 19, 'default');
+INSERT INTO "acl_user_profile" VALUES(12, 12, 19, 'default');
+INSERT INTO "acl_user_profile" VALUES(13, 13, 19, 'default');
+INSERT INTO "acl_user_profile" VALUES(14, 14, 19, 'default');
+INSERT INTO "acl_user_profile" VALUES(15, 15, 19, 'default');
+INSERT INTO "acl_user_profile" VALUES(16, 16, 19, 'default');
+INSERT INTO "acl_user_profile" VALUES(17, 17, 19, 'default');
+INSERT INTO "acl_user_profile" VALUES(18, 18, 19, 'default');
+COMMIT;

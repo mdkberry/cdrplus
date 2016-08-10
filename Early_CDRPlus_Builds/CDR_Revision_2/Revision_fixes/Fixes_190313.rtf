@@ -1,0 +1,42 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww13000\viewh11300\viewkind0
+\deftab720
+\pard\pardeftab720\ql\qnatural
+
+\f0\fs24 \cf0 \
+1. the email does not seem to arrive though it says it is sent.\
+I tested mailing function at hosting server.\
+It worked well. The client server may have some problem regarding sending mail.\
+Anyway i must meet you to clarify the reason.\
+\
+2. due to item 1 I have not yet looked at cron jobs either\
+You must configure Windows Schedule Jobs to run cron/schedule_runner.bat periodically.\
+Please edit cron/schedule_runner.bat file properly before you configure Windows Schedule Jobs.\
+\
+3. what is "sdf@hotmail.com" in lin 86 of schedule_manager.php?\
+Please see \
+function multi_attach_mail($to, $data, $sendermail) line 278 of db.php file.\
+"sdf@hotmail.com" was intended to supply sender's email address.\
+But as currently it is not used at all, but you must edit the line 282 of db.php file directly.\
+You must edit the sender's email address at both of db.php line 282 and schedule_runner.php line 6\
+\
+4. I have updated the php.ini you were correct the time zone as wrong so I will see how that goes.\
+As your project requirement, cron job function can be tested only once a day, i.e., at 00:00 everyday.\
+But it will take too many days at this rate.\
+I suggest you to take enough test of cron job by modifying the setting of schedulers.\
+If it works well, then you may set scheduler's fire time to 00:00\
+Understand me ?\
+\
+5. Call Count Reports run from Reports page do not list with Total time in ascending order.\
+Sorry. I fixed it and uploaded fixed file - displayschedule.php \
+\
+6. do not worry about "?" I have found the entry in code and can add in href links myself thanks.\
+OK.\
+7. do not worry about the ADD new record function on main page. I will no longer need it.\
+OK.\
+\
+Let us meet as soon as possible to complete current project.\
+\
+canlan.}

@@ -1,0 +1,11 @@
+This is the first working version of CDR PLus and contains only the module 1.
+see notes for install and setup.
+this was completed and superceded by full version Feb 2013.
+
+membership.sql needs to be imported via phpmyadmin to the local machine where CDR runs.
+this shows the local tables that are used for referencing ext. membername. and dept. 
+
+note that this format changed for the next version of CDR PLus and was no longer applicable.
+
+
+

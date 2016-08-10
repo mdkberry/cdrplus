@@ -1,0 +1,97 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+
+\f0\b\fs24 \cf0 \ul \ulc0 ASTERISKCDRDB database 
+\b0 \ulnone \
+table = cdr\
+fields = \
+\
++-------------+--------------+------+-----+---------------------+-------+\
+| calldate    | datetime     | NO   |     | 0000-00-00 00:00:00 |       | \
+| clid        | varchar(80)  | NO   |     |                     |       | \
+| src         | varchar(80)  | NO   |     |                     |       | \
+| dst         | varchar(80)  | NO   |     |                     |       | \
+| dcontext    | varchar(80)  | NO   |     |                     |       | \
+| channel     | varchar(80)  | NO   |     |                     |       | \
+| dstchannel  | varchar(80)  | NO   |     |                     |       | \
+| lastapp     | varchar(80)  | NO   |     |                     |       | \
+| lastdata    | varchar(80)  | NO   |     |                     |       | \
+| duration    | int(11)      | NO   |     | 0                   |       | \
+| billsec     | int(11)      | NO   |     | 0                   |       | \
+| disposition | varchar(45)  | NO   |     |                     |       | \
+| amaflags    | int(11)      | NO   |     | 0                   |       | \
+| accountcode | varchar(20)  | NO   |     |                     |       | \
+| uniqueid    | varchar(32)  | NO   | MUL |                     |       | \
+| userfield   | varchar(255) | NO   |     |                     |       | \
++-------------+--------------+------+-----+---------------------+-------+\
+\
+\
+
+\b \ul CREATING A LCD DISPLAY OF CALL STATS:
+\b0 \ulnone \
+\
+
+\b \ul criteria:
+\b0 \ulnone \
+- data pulled from asteriskcdrdb MySQL in realtime\
+- sits on seperate PC or Linux Box with LCD display attached\
+- runs full screen in HTTP browser\
+	- refresh interval for stats updates - 5 secs\
+	- scroll through different screen sets\
+	- pop-up bar for settings control\
+- HTML5 , AJAX, Javascript and PHP w. MySQL database read only. (FLASH?)\
+- black background with Yellow Text or Red/Green/Blue for Highlights, White for titles.\
+- Pause option for holding screen slide.\
+- ordered based on ascending record data on each refresh\
+- color change for certain thresholds\
+- screen is secondary to reporting feature exportable to PDF and XLS \
+- can filter by groups of extensions both screen and exports\
+\
+\
+Freelancer jobs examples:\
+\
+http://www.freelancer.ph/projects/PHP-Flash/Audio-Video-conference-chat-Application.4022190.html\
+\
+example sites : \
+\
+http://prositos.no/cl/\
+\
+
+\b \ul REQUIRED SPECS:
+\b0 \ulnone \
+font size: 25.6px ???? confirm\
+10 rows per screen max + title area\
+Fonts: Tahoma, Arial, Verdana use of Bold and Italics\
+Colors: \
+	Background - Black: #00000\
+	Main Text - Yellow: #FFFF00\
+	Title Text - White: #FFFFFF\
+\
+
+\b \ul DATA to collect:
+\b0 \ulnone \
+1. CDR data in asteriskcdrdb can be accessed via port 3306\
+2. User Data stored in /var/www/db/acl.db (SQLite)\
+tables: 
+\b acl_group 
+\b0 (shows group/dept membership)\
+	
+\b acl_user
+\b0  (shows ext association in 5th field)\
+	
+\b acl_membership
+\b0  (numerically connects group to user)\
+\
+	can be manually accessed using 
+\b sqlite3 /var/www/db/acl.db
+\b0  at command line\
+	then type 
+\b select * from sqlite_master \
+
+\b0 	lists tables type 
+\b select * from acl_user
+\b0  \
+}

@@ -1,0 +1,64 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11580\viewh10700\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+
+\f0\b\fs24 \cf0 \ul \ulc0 CHECKLIST PROJECT ITEMS TO COMPLETE:\
+
+\b0 \ulnone Version 1 - 21st December 2012.\
+\
+
+\b \ul PROBLEMS & SOLUTIONS:\
+
+\b0 \ulnone \
+
+\b Problem:
+\b0 SQLite cannot work across network. so /var/www/db/acl.db will not be used. \
+
+\b Solution: 
+\b0  Create
+\b  
+\b0 MySQL file with important fields to be stored in a local directory on web server PC.\
+name: 
+\b extension_list.db
+\b0 \
+fields: \
+
+\b Column 1 =  Ext  
+\b0 (Extension number e.g. '500')
+\b \
+Column 2 =  User 
+\b0 (User name e.g. 'Mark Berry' in single field)
+\b \
+Column 3 = Team 
+\b0 (Team name e.g. 'Sales')
+\b \
+Column 4 = Number Ignore list. 
+\b0 (numbers in 'src' OR 'dst' on asteriskcdrdb which mean do not include the CDR call record in the web page data. e.g. '000' , 's', '*97')\
+\
+\
+
+\b \ul CHECKLIST TO COMPLETE PROJECT:
+\b0 \ulnone \
+\
+1. Calls from Extension to Extension should not be included in the data shown on pages. e.g. 500 calling to 519 should not be included in the data on web page.\
+\
+2. Web pages should order rows with Extension or Team with the highest Total mins at the top of the page rows and in descending order.\
+\
+3. Automatic page refresh  every 5-10 seconds the data should refresh on the screen automatically.\
+\
+4. The web pages should rotate automatically on a configured timer e.g. every 5-20 seconds the page changes to the next page on rotation.\
+\
+4.1 Drop down option to choose which pages are included in the automatic rotation.\
+\
+5. Export option for each page to provide XLS / CSV document of data in readable form, export should include User associated with Extension (see extension_list.db) and Team membership as well as all the data from the page.\
+\
+5.1 Email option on web page to email each report in #5 above as XLS / CSV document. Email address can be input via click button on screen before sending.\
+\
+6. Number ignore list. (see extension_list.db)\
+ if any fields in this column are found in the CDR call record then the record should not be included in the web page totals. \
+e.g. '*97' or 's' or '000'  \
+\
+\
+}

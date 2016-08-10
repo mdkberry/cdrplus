@@ -1,0 +1,43 @@
+<div style="font-size: 12px;">
+	<a href="calls.php?range=today" >Calls / Today</a>
+	<a href="calls.php?range=thisweek" >Calls / This Week</a>
+	<a href="calls.php?range=thismonth" >Calls / This Month</a>
+	<br />
+	<a href="teams.php?range=today" >Teams / Today</a>
+	<a href="teams.php?range=thisweek" >Teams / This Week</a>
+	<a href="teams.php?range=thismonth" >Teams / This Month</a>
+	<div id="rotation_config" >
+		<a href="javascript:void(0);" onclick="$('.rot_config_board').toggle();">Page Rotation Configuration</a>
+		<ul class="rot_config_board">
+			<li><input type="checkbox" /> <span>ALL</span></li>
+			<li><input type="checkbox" /> <span>Calls / Today</span></li>
+			<li><input type="checkbox" /> <span>Calls / This Week</span></li>
+			<li><input type="checkbox" /> <span>Calls / This Month</span></li>
+			<li><input type="checkbox" /> <span>Teams / Today</span></li>
+			<li><input type="checkbox" /> <span>Teams / This Week</span></li>
+			<li><input type="checkbox" /> <span>Teams / This Month</span></li>
+			<li style="text-align:center;"><button>OK</button><button>Cancel</button></li>
+		</ul>
+	</div>
+	
+	<script type='text/javascript'>
+	$(document).ready(function(){
+		
+        $.ajax({
+            type : "POST",
+            url  : "get-rotation-config.php",
+            async : false,
+            dataType: "json",
+            cache: false,
+            success: function(result) {
+               window.clearTimeout(t);
+               input_content = result;
+               input.disabled = false;
+            },
+            error : function(result){},
+            complete: function(result){}
+         });
+    });
+	</script>
+		
+</div>

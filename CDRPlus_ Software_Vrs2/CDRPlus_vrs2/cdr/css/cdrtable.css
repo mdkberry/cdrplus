@@ -1,0 +1,52 @@
+#table_wrapper {
+  background: none repeat scroll 0 0 black;
+  color: yellow;
+  font-family: Tahoma;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: auto;
+  padding: 10px;
+  width: 800px;
+}
+#table_time {
+  padding: 40px 30px;
+}
+#calls_table { }
+#calls_table tr {
+	border-bottom: 2px solid #AEACAD;
+}
+#calls_table tr th.descending {
+	background: url("descending.png") no-repeat scroll right center transparent;
+	background-size: 15px;
+}
+#calls_table tr th.ascending {
+	background: url("ascending.png") no-repeat scroll right center transparent;
+	background-size: 15px;
+}
+#calls_table tr th {
+  color: yellow;
+  line-height: 11px;
+  border-bottom: 3px solid #AEACAD;
+}
+#calls_table tr td {
+  color: yellow;
+  text-align: center;
+  border-bottom: 2px solid #AEACAD;
+}
+.rot_config_board {
+  background: none repeat scroll 0 0 black;
+  list-style: none outside none;
+  margin: 0;
+  padding: 10px;
+  position: absolute;
+  z-index: 6;
+}
+.rot_config_board li span {
+  position: relative;
+  top: -2px;
+}
+.rot_config_board button {
+  font: 13px serif bold;
+  margin: 7px 4px 1px;
+  width: 37%;
+}
