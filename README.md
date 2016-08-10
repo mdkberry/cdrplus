@@ -1,5 +1,5 @@
 # cdrplus
-CDRPlus - Live call stats &amp; reporting software for Asterisk PBX
+CDRPlus - Live call stats &amp; reporting software for Asterisk PBX , runs on Windows 7 and pulls MYSQL data from the PBX via port 3309.
 
 Designer: Mark Berry www.MBITServices.com.au  
 Coding: Canlan318 @ Freelancer.com
