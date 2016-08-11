@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2013 at 08:08 PM
+-- Generation Time: Aug 11, 2016 at 06:58 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -68,15 +68,8 @@ CREATE TABLE IF NOT EXISTS `schedule` (
 --
 
 INSERT INTO `schedule` (`id`, `mail`, `extlist`, `fromdate`, `todate`, `period`, `type`, `fordisplay`, `created`, `report_run`, `report_run_exec`) VALUES
-(80, 'mdkberry@outlook.com', NULL, NULL, NULL, 'daily', 'detailed', 'no', '2013-07-02 07:22:50', '2013-07-02 13:59:59', 'no'),
-(81, 'neil.lewis@gdsinternational.com', NULL, NULL, NULL, 'daily', 'callcount', 'no', '2013-07-08 06:24:37', '2013-07-08 13:59:59', 'no'),
-(82, 'tony.spencer@gdsinternational.com', '623,613,618,604,607', NULL, NULL, 'daily', 'callcount', 'no', '2013-07-08 06:25:22', '2013-07-08 13:59:59', 'no'),
-(83, 'oliver.smart@gdsinternational.com', NULL, NULL, NULL, 'daily', 'callcount', 'no', '2013-07-08 06:26:12', '2013-07-08 13:59:59', 'no'),
-(84, 'nick.york@gdsinternational.com', '602,617,616', NULL, NULL, 'daily', 'callcount', 'no', '2013-07-08 06:30:03', '2013-07-08 13:59:59', 'no'),
-(85, 'neil.lewis@gdsinternational.com', NULL, NULL, NULL, 'weekly', 'callcount', 'no', '2013-07-08 06:30:21', '2013-07-14 13:59:59', 'no'),
-(86, 'neil.lewis@gdsinternational.com', NULL, NULL, NULL, 'monthly', 'callcount', 'no', '2013-07-08 06:30:42', '2013-07-31 13:59:59', 'no'),
-(87, 'oliver.smart@gdsinternational.com', NULL, NULL, NULL, 'weekly', 'callcount', 'no', '2013-07-08 06:30:58', '2013-07-14 13:59:59', 'no'),
-(88, 'oliver.smart@gdsinternational.com', NULL, NULL, NULL, 'monthly', 'callcount', 'no', '2013-07-08 06:31:15', '2013-07-31 13:59:59', 'no');
+(82, 'user@somemail.com', '623,613,618,604,607', NULL, NULL, 'daily', 'callcount', 'no', '2013-07-08 06:25:22', '2013-07-08 13:59:59', 'no'),
+(84, 'another@moremail.com', '602,617,616', NULL, NULL, 'daily', 'callcount', 'no', '2013-07-08 06:30:03', '2013-07-08 13:59:59', 'no');
 
 -- --------------------------------------------------------
 
@@ -99,34 +92,12 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`id`, `user`, `group`, `extension`) VALUES
 (3, 'Reception', 'Reception', '600'),
 (4, 'User', 'Dept', '601'),
-(5, 'Nick Y', 'IBL', '602'),
+(5, 'Nick', 'IBL', '602'),
 (6, 'Ollie', 'IBL', '603'),
 (7, 'Jerome', 'Delegates', '604'),
 (8, 'Boardroom', 'Boardroom', '605'),
 (9, 'Mark J', 'BA', '606'),
-(10, 'Joel A', 'Delegates', '607'),
-(11, 'User', 'Dept', '608'),
-(12, 'User', 'Dept', '609'),
-(13, 'Nick R', 'Accounts', '610'),
-(14, 'Daniel D', 'BA', '611'),
-(15, 'Markus', 'IBL', '612'),
-(16, 'Liz C', 'Delegates', '613'),
-(17, 'Rob S', 'BA', '614'),
-(18, 'Jane H', 'BA', '615'),
-(19, 'Nick H', 'BA', '616'),
-(20, 'Lachlan', 'BA', '617'),
-(21, 'Shaun B', 'Delegates', '618'),
-(22, 'Anita S', 'IBL', '619'),
-(23, 'Kelly T', 'BA', '620'),
-(24, 'User', 'Dept', '621'),
-(25, 'User', 'Dept', '622'),
-(26, 'Kristy M', 'Delegates', '623'),
-(27, 'Amelia G', 'Events', '624'),
-(28, 'Henry B', 'IBL', '625'),
-(29, 'Lar', 'BA', '626'),
-(30, 'User', 'Dept', '627'),
-(31, 'User', 'Dept', '628'),
-(32, 'User', 'Dept', '629');
+(10, 'Joel A', 'Delegates', '607');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
