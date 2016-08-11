@@ -4,6 +4,11 @@ CDRPlus - Live call stats &amp; reporting software for Asterisk PBX , runs on Wi
 Designer: Mark Berry  
 Coding: Canlan318 @ Freelancer.com
 
+INSTALLATION:
+
+You only need the .zip and the instruction doco that is in the CDRPlus_Software_Vrs2 folder.
+(You will also need a Windows 7 PC for CDRPlus to be installed on, and a PBX server running Asterisk.)
+
 SUMMARY:
 
 A live call logging system, updated and viewed via browser using staff names and teams to show call numbers in a live tally, as call totals per day/week/month in graphs that can be set to auto-rotate in the browser window and can therefore be displayed live on an LCD screen in the office or viewed from any network PC.
